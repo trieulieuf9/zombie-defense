@@ -1,0 +1,17 @@
+{
+  "name": "Zombie Yard",
+  "short_name": "Zombie Yard",
+  "description": "Arcade idle zombie survival: collect meat, build turrets, unlock new zones.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "fullscreen",
+  "display_override": ["fullscreen", "standalone"],
+  "orientation": "any",
+  "background_color": "#1d2b1a",
+  "theme_color": "#1d2b1a",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

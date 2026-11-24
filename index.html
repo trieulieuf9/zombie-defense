@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Zombie Yard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Zombie Yard">
+<meta name="theme-color" content="#1d2b1a">
+<meta name="format-detection" content="telephone=no">
+<link rel="manifest" href="./manifest.json">
+<link rel="apple-touch-icon" href="./icons/icon-180.png">
+<link rel="icon" href="./icons/icon-192.png">
+<link rel="stylesheet" href="./style.css">
+<script type="importmap">
+{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
+</script>
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<div id="fxlayer"></div>
+
+<div id="hud">
+  <div id="topleft">
+    <div id="meatPill" class="pill">
+      <span class="ico">🥩</span><b id="meatTxt">0/10</b>
+      <div class="bar"><i id="meatBar"></i></div>
+    </div>
+    <div id="hpPill" class="pill thin"><span class="ico">❤️</span><div class="bar red"><i id="hpBar"></i></div></div>
+    <div id="resPill" class="pill thin" style="display:none"><span class="ico">🔩</span><b id="scrapTxt">0</b><span class="ico">⚡</span><b id="energyTxt">0</b><b id="ionTxt"></b></div>
+    <div id="zoneTxt">The Safe Clearing</div>
+  </div>
+
+  <div id="topcenter">
+    <div id="wavePill" class="pill">
+      <span id="waveTxt">🧟 Horde in 1:30</span>
+      <div class="bar core" id="coreBarWrap"><i id="coreBar"></i></div>
+    </div>
+    <div id="bossWrap" style="display:none"><span id="bossName"></span><div class="bar boss"><i id="bossFill"></i></div></div>
+    <div id="endlessPill" class="pill" style="display:none"><span id="endlessTxt"></span></div>
+  </div>
+
+  <div id="topright">
+    <button id="btnStats" class="round" aria-label="Stats">📊</button>
+    <button id="btnSettings" class="round" aria-label="Settings">⚙️</button>
+  </div>
+
+  <div id="objective"><span id="objTxt"></span></div>
+  <div id="guide"><i></i></div>
+  <div id="toasts"></div>
+  <div id="hurt"></div>
+</div>
+
+<div id="joy"><div id="joyBase"></div><div id="joyKnob"></div></div>
+
+<div id="settings" class="modal hidden">
+  <div class="card">
+    <h2>Settings</h2>
+    <label class="row"><span>Sound effects</span><button id="optSound" class="toggle on">ON</button></label>
+    <label class="row"><span>Quality</span><button id="optQuality" class="toggle on">High</button></label>
+    <label class="row"><span>Keep screen awake</span><button id="optWake" class="toggle on">ON</button></label>
+    <div class="row"><span>Auto-save every 5 s</span><button id="btnSaveNow" class="toggle">Save now</button></div>
+    <div class="row"><span>Start over</span><button id="btnReset" class="toggle danger">Reset Save</button></div>
+    <button id="closeSettings" class="big">Back to the game</button>
+    <p class="fine">Zombie Yard · Zones 1–5 + Endless · Pure HTML5 + Three.js</p>
+  </div>
+</div>
+
+<div id="stats" class="modal hidden">
+  <div class="card">
+    <h2>Survivor Stats</h2>
+    <div id="statsBody"></div>
+    <button id="closeStats" class="big">Back to the game</button>
+  </div>
+</div>
+
+<div id="boot"><div class="spin"></div><div id="bootTxt">Loading…</div></div>
+
+<script>
+// Friendly messages for browsers that can't run the game.
+window.addEventListener('error', function (e) {
+  var t = document.getElementById('bootTxt'); if (!t) return;
+  var b = document.getElementById('boot'); if (!b || b.classList.contains('gone')) return;
+  t.textContent = 'Could not start: ' + (e.message || 'unknown error') + '. Needs iPadOS / iOS 16.4+ or a recent browser, and an internet connection the first time.';
+});
+if (!(HTMLScriptElement.supports && HTMLScriptElement.supports('importmap'))) {
+  document.getElementById('bootTxt').textContent = 'This browser is too old (needs iPadOS / iOS 16.4+).';
+}
+</script>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
