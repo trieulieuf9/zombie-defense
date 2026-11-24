@@ -1,4 +1,4 @@
-# Zombie Yard — arcade idle zombie survival (Zones 1–5 + Endless)
+# Zombie Defense — arcade idle zombie survival (Zones 1–5 + Endless)
 
 Pure HTML5 + CSS + vanilla JS (ES modules) + Three.js from a CDN. **No build step.** Works on GitHub Pages and as an "Add to Home Screen" app on iPad.
 

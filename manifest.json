@@ -1,6 +1,6 @@
 {
-  "name": "Zombie Yard",
-  "short_name": "Zombie Yard",
+  "name": "Zombie Defense",
+  "short_name": "Zombie Defense",
   "description": "Arcade idle zombie survival: collect meat, build turrets, unlock new zones.",
   "start_url": "./index.html",
   "scope": "./",

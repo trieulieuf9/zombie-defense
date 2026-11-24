@@ -1,4 +1,4 @@
-// Zombie Yard — scene setup, camera, game loop, HUD, settings and auto-save.
+// Zombie Defense — scene setup, camera, game loop, HUD, settings and auto-save.
 import * as THREE from 'three';
 import { state, load, save, wipe, carried, capacity, weapon, speed } from './state.js';
 import { clamp, damp, fmtTime } from './util.js';
